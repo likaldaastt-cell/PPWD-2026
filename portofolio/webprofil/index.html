@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya</title>
+    <link rel="stylesheet" href="profil.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <img src="pfp.jpg" alt="Foto Profil Lika" class="foto-profil">
+        <h1>Lika Lidia Astutik</h1>
+        <p>Mahasiswa Sistem Informasi — Universitas Tanjungpura</p>
+    </header>
+
+    <!-- Navigasi -->
+    <nav class="nav">
+        <a href="#tentang">Tentang</a>
+        <a href="#jadwal">Jadwal</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
+
+    <!-- Konten Utama -->
+    <main class="konten">
+
+        <!-- Tentang Saya -->
+        <section id="tentang">
+            <h2>Tentang Saya</h2>
+            <p>
+                Halo! Saya Lika, mahasiswa yang sedang belajar membuat web
+                dengan HTML dan CSS. Saya suka desain karena bisa membuat
+                halaman yang tadinya polos menjadi menarik.
+            </p>
+            <p>
+                Cita-cita saya menjadi orang sukses.
+            </p>
+            <h3>Daftar Hobi</h3>
+
+            <table class="tabel-hobi">
+                <tr>
+                    <th>No</th>
+                    <th>Hobi</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Membaca</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bernyanyi</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Mendengarkan musik</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Menonton film</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Tidur</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Jadwal -->
+    <section id="jadwal">
+        <h2>Jadwal Mata Kuliah</h2>
+
+        <table>
+            <tr>
+                <th>Hari</th>
+                <th>Mata Kuliah</th>
+                <th>Jam</th>
+            </tr>
+
+            <tr>
+                <td>Senin</td>
+                <td>Basis Data</td>
+                <td>10.20 - 12.50</td>
+            </tr>
+            <tr>
+                <td>Senin</td>
+                <td>Kewarganegaraan</td>
+                <td>15.30 - 17.00</td>
+            </tr>
+
+            <tr>
+                <td>Selasa</td>
+                <td>Praktikum Pemrograman Web Dasar</td>
+                <td>10.20 - 13.10</td>
+            </tr>
+            <tr>
+                <td>Selasa</td>
+                <td>Manajemen Proyek SI</td>
+                <td>13.30 - 15.10</td>
+            </tr>
+
+            <tr>
+                <td>Rabu</td>
+                <td>Aplikasi Multimedia</td>
+                <td>07.30 - 10.00</td>
+            </tr>
+            <tr>
+                <td>Rabu</td>
+                <td>Rekayasa Perangkat Lunak</td>
+                <td>10.20 - 12.50</td>
+            </tr>
+            <tr>
+                <td>Rabu</td>
+                <td>Pemrograman Web Dasar</td>
+                <td>13.30 - 15.10</td>
+            </tr>
+
+            <tr>
+                <td>Kamis</td>
+                <td>Pemrograman Berorientasi Objek</td>
+                <td>10.20 - 12.00</td>
+            </tr>
+            <tr>
+                <td>Kamis</td>
+                <td>Kewirausahaan Teknologi Informasi</td>
+                <td>13.30 - 16.00</td>
+            </tr>
+
+            <tr>    
+                <td>Jumat</td>
+                <td>Manajemen Rantai Pasok</td>
+                <td>07.30 - 10.00</td>
+            </tr>
+            <tr>
+                <td>Jumat</td>
+                <td>Praktikum Pemrograman Berorientasi Objek</td>
+                <td>13.30 - 16.20</td>
+            </tr>
+        </table>
+    </section>
+
+        <!-- Formulir Kontak -->
+        <section id="kontak">
+            <h2>Formulir Kontak</h2>
+
+            <form>
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" placeholder="Lika Lidia Astutik">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="lika@gmail.com">
+
+                <label for="pesan">Pesan</label>
+                <textarea id="pesan" rows="4" placeholder="Tulis pesan..."></textarea>
+
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Lika Lidia Astutik. Dibuat dengan HTML &amp; CSS.</p>
+    </footer>
+
+</body>
+</html>

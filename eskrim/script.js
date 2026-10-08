@@ -1,654 +1,936 @@
+/* ============================================================
+   WARUNG ICE CREAM - JQUERY SCRIPT
+   Praktikum Pemrograman Web Dasar
+   ============================================================ */
+
 $(document).ready(function () {
 
-    // =====================================================
-    // DATA PRODUK
-    // =====================================================
+    /* =====================================================
+       1. DATA PRODUK
+       ===================================================== */
 
     const produkData = [
         {
             id: 1,
-            nama: "Es Krim Cokelat",
+            nama: 'Es Krim Cokelat',
             harga: 15000,
-            kategori: "es-krim",
-            icon: "🍫",
-            desc: "Cokelat premium lembut",
-            badge: "Best Seller",
-            badgeType: "hot"
+            kategori: 'es-krim',
+            icon: '🍫',
+            desc: 'Cokelat premium lembut',
+            badge: 'Best Seller',
+            badgeType: 'hot'
         },
         {
             id: 2,
-            nama: "Es Krim Strawberry",
+            nama: 'Es Krim Strawberry',
             harga: 15000,
-            kategori: "es-krim",
-            icon: "🍓",
-            desc: "Stroberi segar asli",
-            badge: "Favorit",
-            badgeType: ""
+            kategori: 'es-krim',
+            icon: '🍓',
+            desc: 'Stroberi segar asli',
+            badge: 'Favorit',
+            badgeType: ''
         },
         {
             id: 3,
-            nama: "Es Krim Vanilla",
+            nama: 'Es Krim Vanilla',
             harga: 13000,
-            kategori: "es-krim",
-            icon: "🍦",
-            desc: "Vanilla klasik creamy",
-            badge: "",
-            badgeType: ""
+            kategori: 'es-krim',
+            icon: '🍦',
+            desc: 'Vanilla klasik creamy',
+            badge: '',
+            badgeType: ''
         },
         {
             id: 4,
-            nama: "Es Krim Mangga",
+            nama: 'Es Krim Mangga',
             harga: 16000,
-            kategori: "es-krim",
-            icon: "🥭",
-            desc: "Mangga manis tropis",
-            badge: "Baru",
-            badgeType: ""
+            kategori: 'es-krim',
+            icon: '🥭',
+            desc: 'Mangga manis tropis',
+            badge: 'Baru',
+            badgeType: ''
         },
         {
             id: 5,
-            nama: "Sundae Cokelat",
+            nama: 'Sundae Cokelat',
             harga: 25000,
-            kategori: "sundae",
-            icon: "🍨",
-            desc: "Sundae dengan topping cokelat",
-            badge: "Best Seller",
-            badgeType: "hot"
+            kategori: 'sundae',
+            icon: '🍨',
+            desc: 'Sundae dengan topping cokelat',
+            badge: 'Best Seller',
+            badgeType: 'hot'
         },
         {
             id: 6,
-            nama: "Sundae Keju",
+            nama: 'Sundae Keju',
             harga: 27000,
-            kategori: "sundae",
-            icon: "🧀",
-            desc: "Sundae topping keju melimpah",
-            badge: "",
-            badgeType: ""
+            kategori: 'sundae',
+            icon: '🧀',
+            desc: 'Sundae topping keju melimpah',
+            badge: '',
+            badgeType: ''
         },
         {
             id: 7,
-            nama: "Sundae Buah",
+            nama: 'Sundae Buah',
             harga: 28000,
-            kategori: "sundae",
-            icon: "🍧",
-            desc: "Sundae dengan buah segar",
-            badge: "Favorit",
-            badgeType: ""
+            kategori: 'sundae',
+            icon: '🍧',
+            desc: 'Sundae dengan buah segar',
+            badge: 'Favorit',
+            badgeType: ''
         },
         {
             id: 8,
-            nama: "Milkshake Cokelat",
+            nama: 'Milkshake Cokelat',
             harga: 20000,
-            kategori: "minuman",
-            icon: "🥤",
-            desc: "Milkshake cokelat dingin",
-            badge: "",
-            badgeType: ""
+            kategori: 'minuman',
+            icon: '🥤',
+            desc: 'Milkshake cokelat dingin',
+            badge: '',
+            badgeType: ''
         },
         {
             id: 9,
-            nama: "Milkshake Strawberry",
+            nama: 'Milkshake Strawberry',
             harga: 20000,
-            kategori: "minuman",
-            icon: "🥛",
-            desc: "Milkshake stroberi segar",
-            badge: "Baru",
-            badgeType: ""
+            kategori: 'minuman',
+            icon: '🥛',
+            desc: 'Milkshake stroberi segar',
+            badge: 'Baru',
+            badgeType: ''
         },
         {
             id: 10,
-            nama: "Es Teh Manis",
+            nama: 'Es Teh Manis',
             harga: 8000,
-            kategori: "minuman",
-            icon: "🧊",
-            desc: "Es teh manis segar",
-            badge: "",
-            badgeType: ""
+            kategori: 'minuman',
+            icon: '🧊',
+            desc: 'Es teh manis segar',
+            badge: '',
+            badgeType: ''
         },
         {
             id: 11,
-            nama: "Es Jeruk",
+            nama: 'Es Jeruk',
             harga: 10000,
-            kategori: "minuman",
-            icon: "🍊",
-            desc: "Es jeruk peras asli",
-            badge: "",
-            badgeType: ""
+            kategori: 'minuman',
+            icon: '🍊',
+            desc: 'Es jeruk peras asli',
+            badge: '',
+            badgeType: ''
         },
         {
             id: 12,
-            nama: "Float Ice Cream",
+            nama: 'Float Ice Cream',
             harga: 22000,
-            kategori: "minuman",
-            icon: "🍹",
-            desc: "Minuman soda dengan es krim",
-            badge: "Best Seller",
-            badgeType: "hot"
+            kategori: 'minuman',
+            icon: '🍹',
+            desc: 'Minuman soda dengan es krim',
+            badge: 'Best Seller',
+            badgeType: 'hot'
         }
     ];
 
 
-    // =====================================================
-    // VARIABEL
-    // =====================================================
+    /* =====================================================
+       2. STATE
+       ===================================================== */
 
     let cart = [];
-    let currentFilter = "all";
-    let searchKeyword = "";
+    let currentFilter = 'all';
+    let searchKeyword = '';
 
 
-    // =====================================================
-    // TAMPILKAN PRODUK
-    // =====================================================
+    /* =====================================================
+       3. FUNGSI RENDER PRODUK
+       ===================================================== */
 
     function renderProduk() {
 
-        var grid = $("#produkGrid");
+        const $grid = $('#produkGrid');
 
-        if (grid.length === 0) {
-            console.error("ERROR: #produkGrid tidak ditemukan di HTML");
+        if ($grid.length === 0) {
+            console.error('Elemen #produkGrid tidak ditemukan.');
             return;
         }
 
-        grid.empty();
+        $grid.empty();
 
-        var hasil = produkData.filter(function (produk) {
 
-            var cocokKategori =
-                currentFilter === "all" ||
-                produk.kategori === currentFilter;
+        const filtered = produkData.filter(function (p) {
 
-            var keyword = searchKeyword.toLowerCase();
+            const matchKategori =
+                currentFilter === 'all' ||
+                p.kategori === currentFilter;
 
-            var cocokSearch =
-                produk.nama.toLowerCase().indexOf(keyword) !== -1 ||
-                produk.desc.toLowerCase().indexOf(keyword) !== -1;
+            const keyword =
+                searchKeyword.toLowerCase().trim();
 
-            return cocokKategori && cocokSearch;
+            const matchSearch =
+                p.nama.toLowerCase().includes(keyword) ||
+                p.desc.toLowerCase().includes(keyword);
+
+            return matchKategori && matchSearch;
         });
 
 
-        // Jika tidak ada produk
-        if (hasil.length === 0) {
+        /* Jika produk tidak ditemukan */
 
-            grid.html(
-                '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;">' +
-                    '<h3>Produk tidak ditemukan</h3>' +
-                    '<p>Coba kategori atau kata kunci lain.</p>' +
-                '</div>'
-            );
+        if (filtered.length === 0) {
+
+            $grid.html(`
+                <div style="
+                    grid-column: 1/-1;
+                    text-align: center;
+                    padding: 60px 20px;
+                ">
+
+                    <i class="fas fa-search"
+                       style="
+                           font-size: 3.5rem;
+                           color: #ffe4ec;
+                           margin-bottom: 20px;
+                           display: block;
+                       ">
+                    </i>
+
+                    <h3 style="
+                        color: #999;
+                        margin-bottom: 8px;
+                    ">
+                        Produk tidak ditemukan
+                    </h3>
+
+                    <p style="font-size: 0.9rem;">
+                        Coba kata kunci atau kategori lain
+                    </p>
+
+                </div>
+            `);
 
             return;
         }
 
 
-        // Tampilkan produk
-        hasil.forEach(function (produk) {
+        /* Tampilkan setiap produk */
 
-            var badge = "";
+        filtered.forEach(function (p) {
 
-            if (produk.badge !== "") {
-                badge =
-                    '<div class="produk-badge ' +
-                    produk.badgeType +
-                    '">' +
-                    produk.badge +
-                    '</div>';
+            let badgeHtml = '';
+
+            if (p.badge) {
+
+                badgeHtml = `
+                    <div class="produk-badge ${p.badgeType}">
+                        ${p.badge}
+                    </div>
+                `;
             }
 
 
-            var card =
-                '<div class="produk-card" ' +
-                    'data-id="' + produk.id + '" ' +
-                    'data-kategori="' + produk.kategori + '">' +
+            const card = `
 
-                    badge +
+                <div class="produk-card"
+                     data-id="${p.id}"
+                     data-kategori="${p.kategori}">
 
-                    '<div class="produk-img">' +
-                        produk.icon +
-                    '</div>' +
+                    <div class="produk-img">
 
-                    '<div class="produk-info">' +
+                        ${badgeHtml}
 
-                        '<h3>' +
-                            produk.nama +
-                        '</h3>' +
+                        ${p.icon}
 
-                        '<p class="desc">' +
-                            produk.desc +
-                        '</p>' +
-
-                        '<div class="produk-footer">' +
-
-                            '<div class="produk-price">' +
-                                'Rp ' +
-                                produk.harga.toLocaleString("id-ID") +
-                                '<small>per porsi</small>' +
-                            '</div>' +
-
-                            '<button ' +
-                                'class="btn-add-cart" ' +
-                                'data-id="' + produk.id + '">' +
-                                '<i class="fas fa-plus"></i>' +
-                            '</button>' +
-
-                        '</div>' +
-
-                    '</div>' +
-
-                '</div>';
+                    </div>
 
 
-            grid.append(card);
+                    <div class="produk-info">
+
+                        <h3>
+                            ${p.nama}
+                        </h3>
+
+                        <p class="desc">
+                            ${p.desc}
+                        </p>
+
+
+                        <div class="produk-footer">
+
+                            <div class="produk-price">
+
+                                Rp ${p.harga.toLocaleString('id-ID')}
+
+                                <small>
+                                    per porsi
+                                </small>
+
+                            </div>
+
+
+                            <button
+                                class="btn-add-cart"
+                                data-id="${p.id}"
+                                title="Tambah ke keranjang">
+
+                                <i class="fas fa-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+            $grid.append(card);
         });
 
-        console.log("Produk berhasil ditampilkan:", hasil.length);
+
+        console.log(
+            'Produk berhasil ditampilkan:',
+            filtered.length
+        );
     }
 
 
-    // =====================================================
-    // FILTER NAVBAR
-    // =====================================================
+    /* =====================================================
+       4. FILTER DARI NAVBAR
+       ===================================================== */
 
-    $(".nav-link").click(function (e) {
+    $('.nav-link').click(function (e) {
 
         e.preventDefault();
 
-        $(".nav-link").removeClass("active");
-        $(this).addClass("active");
+        $('.nav-link').removeClass('active');
 
-        currentFilter = $(this).attr("data-filter");
+        $(this).addClass('active');
 
-        $(".filter-btn").removeClass("active");
 
-        $('.filter-btn[data-cat="' + currentFilter + '"]')
-            .addClass("active");
+        currentFilter =
+            $(this).data('filter');
+
+
+        $('.filter-btn').removeClass('active');
+
+
+        $(
+            '.filter-btn[data-cat="' +
+            currentFilter +
+            '"]'
+        ).addClass('active');
+
 
         renderProduk();
     });
 
 
-    // =====================================================
-    // FILTER BUTTON
-    // =====================================================
+    /* =====================================================
+       5. FILTER DARI TOMBOL MENU
+       ===================================================== */
 
-    $(".filter-btn").click(function () {
+    $('.filter-btn').click(function () {
 
-        $(".filter-btn").removeClass("active");
-        $(this).addClass("active");
+        $('.filter-btn').removeClass('active');
 
-        currentFilter = $(this).attr("data-cat");
+        $(this).addClass('active');
 
-        $(".nav-link").removeClass("active");
 
-        $('.nav-link[data-filter="' + currentFilter + '"]')
-            .addClass("active");
+        currentFilter =
+            $(this).data('cat');
+
+
+        $('.nav-link').removeClass('active');
+
+
+        $(
+            '.nav-link[data-filter="' +
+            currentFilter +
+            '"]'
+        ).addClass('active');
+
 
         renderProduk();
     });
 
 
-    // =====================================================
-    // SEARCH
-    // =====================================================
+    /* =====================================================
+       6. SEARCH
+       ===================================================== */
 
-    $("#searchProduk").on("input", function () {
+    $('#searchProduk').on('input', function () {
 
-        searchKeyword = $(this).val();
+        searchKeyword =
+            $(this).val();
 
         renderProduk();
     });
 
 
-    // =====================================================
-    // TAMBAH KE KERANJANG
-    // =====================================================
+    /* =====================================================
+       7. TAMBAH KE KERANJANG
+       ===================================================== */
 
-    $(document).on("click", ".btn-add-cart", function () {
+    $(document).on(
+        'click',
+        '.btn-add-cart',
+        function (e) {
 
-        var id = Number($(this).attr("data-id"));
-
-        var produk = produkData.find(function (item) {
-            return item.id === id;
-        });
-
-        if (!produk) {
-            return;
-        }
-
-        var existing = cart.find(function (item) {
-            return item.id === id;
-        });
-
-        if (existing) {
-            existing.qty++;
-        } else {
-            cart.push({
-                id: produk.id,
-                nama: produk.nama,
-                harga: produk.harga,
-                icon: produk.icon,
-                qty: 1
-            });
-        }
-
-        updateCartUI();
-
-        showToast(
-            produk.icon + " " +
-            produk.nama +
-            " ditambahkan!"
-        );
-    });
+            e.stopPropagation();
 
 
-    // =====================================================
-    // UPDATE KERANJANG
-    // =====================================================
-
-    function updateCartUI() {
-
-        var cartItems = $("#cartItems");
-
-        var totalQty = 0;
-        var totalHarga = 0;
+            const id =
+                Number($(this).data('id'));
 
 
-        cart.forEach(function (item) {
-
-            totalQty += item.qty;
-
-            totalHarga +=
-                item.harga * item.qty;
-        });
+            const produk =
+                produkData.find(function (p) {
+                    return p.id === id;
+                });
 
 
-        $("#cartBadge").text(totalQty);
-
-        $("#cartTotal").text(
-            "Rp " +
-            totalHarga.toLocaleString("id-ID")
-        );
+            if (!produk) {
+                return;
+            }
 
 
-        if (cart.length === 0) {
-
-            cartItems.html(
-                '<div class="cart-empty">' +
-                    '<i class="fas fa-shopping-cart"></i>' +
-                    '<p>Keranjang masih kosong</p>' +
-                    '<small>Yuk pilih es krim dulu!</small>' +
-                '</div>'
-            );
-
-            return;
-        }
+            const existing =
+                cart.find(function (item) {
+                    return item.id === id;
+                });
 
 
-        var html = "";
+            if (existing) {
 
+                existing.qty += 1;
 
-        cart.forEach(function (item) {
+            } else {
 
-            html +=
-                '<div class="cart-item" data-id="' +
-                    item.id +
-                '">' +
+                cart.push({
 
-                    '<div class="cart-item-icon">' +
-                        item.icon +
-                    '</div>' +
+                    id: produk.id,
 
-                    '<div class="cart-item-info">' +
+                    nama: produk.nama,
 
-                        '<h5>' +
-                            item.nama +
-                        '</h5>' +
+                    harga: produk.harga,
 
-                        '<div class="price">' +
-                            "Rp " +
-                            (item.harga * item.qty)
-                                .toLocaleString("id-ID") +
-                        '</div>' +
+                    icon: produk.icon,
 
-                        '<div class="qty-control">' +
+                    qty: 1
 
-                            '<button class="qty-btn" ' +
-                                'data-action="minus" ' +
-                                'data-id="' + item.id + '">' +
-                                '−' +
-                            '</button>' +
-
-                            '<span class="qty-value">' +
-                                item.qty +
-                            '</span>' +
-
-                            '<button class="qty-btn" ' +
-                                'data-action="plus" ' +
-                                'data-id="' + item.id + '">' +
-                                '+' +
-                            '</button>' +
-
-                        '</div>' +
-
-                    '</div>' +
-
-                    '<button class="cart-item-remove" ' +
-                        'data-id="' + item.id + '">' +
-                        '<i class="fas fa-trash"></i>' +
-                    '</button>' +
-
-                '</div>';
-        });
-
-
-        cartItems.html(html);
-    }
-
-
-    // =====================================================
-    // PLUS / MINUS
-    // =====================================================
-
-    $(document).on("click", ".qty-btn", function () {
-
-        var id = Number($(this).attr("data-id"));
-
-        var action =
-            $(this).attr("data-action");
-
-        var item = cart.find(function (produk) {
-            return produk.id === id;
-        });
-
-        if (!item) {
-            return;
-        }
-
-
-        if (action === "plus") {
-
-            item.qty++;
-
-        } else {
-
-            item.qty--;
-
-            if (item.qty <= 0) {
-
-                cart = cart.filter(function (produk) {
-                    return produk.id !== id;
                 });
             }
-        }
 
-
-        updateCartUI();
-    });
-
-
-    // =====================================================
-    // HAPUS KERANJANG
-    // =====================================================
-
-    $(document).on("click", ".cart-item-remove", function () {
-
-        var id =
-            Number($(this).attr("data-id"));
-
-        cart = cart.filter(function (item) {
-            return item.id !== id;
-        });
-
-        updateCartUI();
-    });
-
-
-    // =====================================================
-    // BUKA KERANJANG
-    // =====================================================
-
-    $("#cartBtn").click(function () {
-
-        $("#cartSidebar").addClass("open");
-
-        $("#cartOverlay").fadeIn(300);
-    });
-
-
-    // =====================================================
-    // TUTUP KERANJANG
-    // =====================================================
-
-    $("#cartClose, #cartOverlay").click(function () {
-
-        $("#cartSidebar").removeClass("open");
-
-        $("#cartOverlay").fadeOut(300);
-    });
-
-
-    // =====================================================
-    // CHECKOUT
-    // =====================================================
-
-    $("#btnCheckout").click(function () {
-
-        if (cart.length === 0) {
-
-            showToast("❌ Keranjang masih kosong!");
-
-            return;
-        }
-
-
-        var total = 0;
-        var totalQty = 0;
-
-
-        cart.forEach(function (item) {
-
-            total += item.harga * item.qty;
-
-            totalQty += item.qty;
-        });
-
-
-        var button = $(this);
-
-        button
-            .html('<i class="fas fa-spinner fa-spin"></i> Memproses...')
-            .prop("disabled", true);
-
-
-        setTimeout(function () {
-
-            cart = [];
 
             updateCartUI();
 
 
-            button
+            showToast(
+                produk.icon +
+                ' ' +
+                produk.nama +
+                ' ditambahkan!'
+            );
+
+
+            $(this).css(
+                'transform',
+                'rotate(90deg) scale(1.3)'
+            );
+
+
+            setTimeout(() => {
+
+                $(this).css(
+                    'transform',
+                    ''
+                );
+
+            }, 300);
+
+
+            $('#cartBadge').css(
+                'transform',
+                'scale(1.4)'
+            );
+
+
+            setTimeout(() => {
+
+                $('#cartBadge').css(
+                    'transform',
+                    'scale(1)'
+                );
+
+            }, 200);
+        }
+    );
+
+
+    /* =====================================================
+       8. UPDATE KERANJANG
+       ===================================================== */
+
+    function updateCartUI() {
+
+        const $cartItems =
+            $('#cartItems');
+
+
+        const totalQty =
+            cart.reduce(
+                (sum, item) =>
+                    sum + item.qty,
+                0
+            );
+
+
+        const totalHarga =
+            cart.reduce(
+                (sum, item) =>
+                    sum +
+                    (item.harga * item.qty),
+                0
+            );
+
+
+        $('#cartBadge')
+            .text(totalQty);
+
+
+        $('#cartTotal')
+            .text(
+                'Rp ' +
+                totalHarga.toLocaleString('id-ID')
+            );
+
+
+        /* Keranjang kosong */
+
+        if (cart.length === 0) {
+
+            $cartItems.html(`
+
+                <div class="cart-empty">
+
+                    <i class="fas fa-shopping-cart"></i>
+
+                    <p>
+                        Keranjang masih kosong
+                    </p>
+
+                    <small>
+                        Yuk pilih es krim dulu!
+                    </small>
+
+                </div>
+
+            `);
+
+            return;
+        }
+
+
+        /* Keranjang berisi */
+
+        let html = '';
+
+
+        cart.forEach(function (item) {
+
+            html += `
+
+                <div class="cart-item"
+                     data-id="${item.id}">
+
+
+                    <div class="cart-item-icon">
+
+                        ${item.icon}
+
+                    </div>
+
+
+                    <div class="cart-item-info">
+
+                        <h5>
+                            ${item.nama}
+                        </h5>
+
+
+                        <div class="price">
+
+                            Rp ${(item.harga * item.qty)
+                                .toLocaleString('id-ID')}
+
+                        </div>
+
+
+                        <div class="qty-control">
+
+
+                            <button
+                                class="qty-btn"
+                                data-action="minus"
+                                data-id="${item.id}">
+
+                                −
+
+                            </button>
+
+
+                            <span class="qty-value">
+
+                                ${item.qty}
+
+                            </span>
+
+
+                            <button
+                                class="qty-btn"
+                                data-action="plus"
+                                data-id="${item.id}">
+
+                                +
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="cart-item-remove"
+                        data-id="${item.id}"
+                        title="Hapus">
+
+                        <i class="fas fa-trash"></i>
+
+                    </button>
+
+
+                </div>
+
+            `;
+        });
+
+
+        $cartItems.html(html);
+    }
+
+
+    /* =====================================================
+       9. PLUS / MINUS KERANJANG
+       ===================================================== */
+
+    $(document).on(
+        'click',
+        '.qty-btn',
+        function () {
+
+            const action =
+                $(this).data('action');
+
+
+            const id =
+                Number($(this).data('id'));
+
+
+            const item =
+                cart.find(function (i) {
+                    return i.id === id;
+                });
+
+
+            if (!item) {
+                return;
+            }
+
+
+            if (action === 'plus') {
+
+                item.qty += 1;
+
+            } else if (action === 'minus') {
+
+                item.qty -= 1;
+
+
+                if (item.qty <= 0) {
+
+                    cart =
+                        cart.filter(function (i) {
+                            return i.id !== id;
+                        });
+                }
+            }
+
+
+            updateCartUI();
+        }
+    );
+
+
+    /* =====================================================
+       10. HAPUS ITEM
+       ===================================================== */
+
+    $(document).on(
+        'click',
+        '.cart-item-remove',
+        function () {
+
+            const id =
+                Number($(this).data('id'));
+
+
+            const item =
+                cart.find(function (i) {
+                    return i.id === id;
+                });
+
+
+            if (item) {
+
+                showToast(
+                    item.icon +
+                    ' ' +
+                    item.nama +
+                    ' dihapus dari keranjang'
+                );
+            }
+
+
+            cart =
+                cart.filter(function (i) {
+                    return i.id !== id;
+                });
+
+
+            updateCartUI();
+        }
+    );
+
+
+    /* =====================================================
+       11. BUKA KERANJANG
+       ===================================================== */
+
+    $('#cartBtn').click(function () {
+
+        $('#cartSidebar')
+            .addClass('open');
+
+
+        $('#cartOverlay')
+            .fadeIn(300);
+    });
+
+
+    /* =====================================================
+       TUTUP KERANJANG
+       ===================================================== */
+
+    $('#cartClose, #cartOverlay')
+        .click(function () {
+
+            $('#cartSidebar')
+                .removeClass('open');
+
+
+            $('#cartOverlay')
+                .fadeOut(300);
+
+        });
+
+
+    /* =====================================================
+       12. CHECKOUT
+       ===================================================== */
+
+    $('#btnCheckout').click(function () {
+
+        if (cart.length === 0) {
+
+            showToast(
+                '❌ Keranjang masih kosong!'
+            );
+
+            return;
+        }
+
+
+        const total =
+            cart.reduce(
+                (sum, item) =>
+                    sum +
+                    (item.harga * item.qty),
+                0
+            );
+
+
+        const totalQty =
+            cart.reduce(
+                (sum, item) =>
+                    sum + item.qty,
+                0
+            );
+
+
+        const $btn =
+            $(this);
+
+
+        $btn
+            .html(
+                '<i class="fas fa-spinner fa-spin"></i> Memproses...'
+            )
+            .prop(
+                'disabled',
+                true
+            );
+
+
+        setTimeout(function () {
+
+
+            $btn
                 .html(
                     '<i class="fas fa-check-circle"></i> Checkout Sekarang'
                 )
-                .prop("disabled", false);
+                .prop(
+                    'disabled',
+                    false
+                );
 
 
-            $("#cartSidebar").removeClass("open");
+            cart = [];
 
-            $("#cartOverlay").fadeOut(300);
+
+            updateCartUI();
+
+
+            $('#cartSidebar')
+                .removeClass('open');
+
+
+            $('#cartOverlay')
+                .fadeOut(300);
 
 
             showToast(
-                "✅ Checkout berhasil! " +
+                '✅ Checkout berhasil! ' +
                 totalQty +
-                " item · Rp " +
-                total.toLocaleString("id-ID")
+                ' item · Rp ' +
+                total.toLocaleString('id-ID')
             );
+
 
         }, 1500);
     });
 
 
-    // =====================================================
-    // TOAST
-    // =====================================================
+    /* =====================================================
+       13. TOAST
+       ===================================================== */
 
-    var toastTimer;
+    let toastTimer;
+
 
     function showToast(message) {
 
         clearTimeout(toastTimer);
 
-        $("#toastMsg").text(message);
 
-        $("#toast").addClass("show");
+        $('#toastMsg')
+            .text(message);
 
 
-        toastTimer = setTimeout(function () {
+        $('#toast')
+            .addClass('show');
 
-            $("#toast").removeClass("show");
 
-        }, 2500);
+        toastTimer =
+            setTimeout(function () {
+
+                $('#toast')
+                    .removeClass('show');
+
+            }, 2500);
     }
 
 
-    // =====================================================
-    // HAMBURGER
-    // =====================================================
+    /* =====================================================
+       14. HAMBURGER MENU
+       ===================================================== */
 
-    $("#hamburger").click(function () {
+    $('#hamburger').click(function () {
 
-        $("#navMenu").toggleClass("show");
+        $('#navMenu')
+            .toggleClass('show');
 
-        var icon = $(this).find("i");
+
+        const icon =
+            $(this).find('i');
 
 
-        if ($("#navMenu").hasClass("show")) {
+        if (
+            $('#navMenu')
+                .hasClass('show')
+        ) {
 
             icon
-                .removeClass("fa-bars")
-                .addClass("fa-times");
+                .removeClass('fa-bars')
+                .addClass('fa-times');
 
         } else {
 
             icon
-                .removeClass("fa-times")
-                .addClass("fa-bars");
+                .removeClass('fa-times')
+                .addClass('fa-bars');
         }
     });
 
 
-    // =====================================================
-    // MULAI APLIKASI
-    // =====================================================
+    /* Tutup menu mobile */
+
+    $('.nav-link').click(function () {
+
+        if (window.innerWidth <= 768) {
+
+            $('#navMenu')
+                .removeClass('show');
+
+
+            $('#hamburger')
+                .find('i')
+                .removeClass('fa-times')
+                .addClass('fa-bars');
+        }
+    });
+
+
+    /* =====================================================
+       15. INISIALISASI
+       ===================================================== */
 
     renderProduk();
 
     updateCartUI();
 
-    console.log("🍦 Warung Ice Cream aktif!");
-    console.log("Jumlah produk:", produkData.length);
+
+    console.log(
+        '🍦 Warung Ice Cream - Siap!'
+    );
+
+
+    console.log(
+        'Total produk: ' +
+        produkData.length
+    );
 
 });

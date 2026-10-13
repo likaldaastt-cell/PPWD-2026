@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawFood - Pet Shop</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4fbff;
+    color:#173b56;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+}
+
+/* NAVBAR */
+nav{
+    background:white;
+    box-shadow:0 2px 10px #0001;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.nav{
+    max-width:1100px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#2388c4;
+    text-decoration:none;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#173b56;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    color:#2388c4;
+}
+
+.nav button{
+    background:#e5f6ff;
+    color:#2388c4;
+    padding:9px 13px;
+    border-radius:8px;
+}
+
+#hamburger{
+    display:none;
+}
+
+/* HERO */
+.hero{
+    padding:70px 8%;
+    background:linear-gradient(135deg,#dff6ff,#a7e0f8);
+}
+
+.hero span{
+    color:#2388c4;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:45px;
+    margin:15px 0;
+}
+
+.hero p{
+    margin-bottom:25px;
+    color:#527287;
+}
+
+.search{
+    background:white;
+    max-width:500px;
+    padding:6px;
+    border-radius:10px;
+    display:flex;
+}
+
+.search input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:12px;
+}
+
+.search button{
+    background:#2388c4;
+    color:white;
+    padding:0 18px;
+    border-radius:7px;
+}
+
+/* PRODUK */
+.produk{
+    max-width:1100px;
+    margin:auto;
+    padding:55px 20px;
+}
+
+.produk h2{
+    text-align:center;
+    font-size:32px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#718896;
+    margin:8px 0 25px;
+}
+
+.filter{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.filter button{
+    padding:9px 17px;
+    margin:4px;
+    border-radius:20px;
+    background:#dff3fc;
+    color:#2388c4;
+}
+
+.filter .active,
+.filter button:hover{
+    background:#2388c4;
+    color:white;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:16px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #0001;
+}
+
+.img{
+    width:100%;
+    height:190px;
+    border-radius:12px;
+    background:#f1faff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding:12px;
+}
+
+.img img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    display:block;
+}
+
+.card h3{
+    font-size:17px;
+    margin:13px 0 7px;
+}
+
+.price{
+    color:#2388c4;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.card button{
+    width:100%;
+    padding:10px;
+    background:#2388c4;
+    color:white;
+    border-radius:7px;
+}
+
+.card button:hover{
+    background:#176c9e;
+}
+
+/* TENTANG */
+.tentang{
+    background:white;
+    padding:60px 20px;
+}
+
+.tentang-box{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.tentang h2{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.tentang p{
+    line-height:1.7;
+    color:#607d8b;
+    margin-bottom:15px;
+}
+
+.info-box{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+.info{
+    background:#eaf8ff;
+    padding:25px;
+    border-radius:15px;
+}
+
+.info h3{
+    margin:10px 0;
+    color:#2388c4;
+}
+
+/* CART */
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#0008;
+    z-index:20;
+}
+
+.overlay.show{
+    display:block;
+}
+
+.cart{
+    position:fixed;
+    right:-400px;
+    top:0;
+    width:380px;
+    height:100vh;
+    background:white;
+    z-index:30;
+    padding:20px;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.cart.show{
+    right:0;
+}
+
+.cart-head{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.cart-head button{
+    background:#eaf7fc;
+    padding:8px;
+    border-radius:7px;
+}
+
+.cart-item{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.qty button{
+    padding:3px 8px;
+    background:#e5f6ff;
+}
+
+.remove{
+    background:none;
+    color:red;
+}
+
+.cart-foot{
+    margin-top:auto;
+    border-top:1px solid #ddd;
+    padding-top:15px;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.checkout{
+    width:100%;
+    padding:12px;
+    background:#2388c4;
+    color:white;
+    border-radius:8px;
+}
+
+/* TOAST */
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#173b56;
+    color:white;
+    padding:13px 18px;
+    border-radius:8px;
+    transform:translateY(100px);
+    transition:.3s;
+    z-index:50;
+}
+
+.toast.show{
+    transform:translateY(0);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    background:#173b56;
+    color:white;
+    padding:30px;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .menu{
+        display:none;
+        position:absolute;
+        top:60px;
+        left:0;
+        right:0;
+        background:white;
+        padding:20px;
+        flex-direction:column;
+    }
+
+    .menu.show{
+        display:flex;
+    }
+
+    #hamburger{
+        display:inline-block;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .info-box{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .cart{
+        width:100%;
+    }
+
+    .img{
+        height:220px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav">
+
+        <a class="logo" href="#home">
+            🐾 PawFood
+        </a>
+
+        <div class="menu" id="menu">
+            <a href="#home">Home</a>
+            <a href="#produk">Produk</a>
+            <a href="#tentang">Tentang</a>
+        </div>
+
+        <div>
+
+            <button id="cartBtn">
+                🛒 <span id="cartCount">0</span>
+            </button>
+
+            <button id="hamburger">
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <span>🐶 🐱 Pet Shop Terpercaya</span>
+
+    <h1>
+        Semua Kebutuhan<br>
+        Hewan Kesayanganmu
+    </h1>
+
+    <p>
+        Makanan, snack dan aksesoris
+        untuk hewan kesayanganmu.
+    </p>
+
+    <div class="search">
+
+        <input
+            id="search"
+            type="text"
+            placeholder="Cari produk..."
+        >
+
+        <button>
+            🔍
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUK -->
+<section class="produk" id="produk">
+
+    <h2>Produk PawFood</h2>
+
+    <p class="subtitle">
+        Pilih kebutuhan terbaik untuk hewan kesayanganmu
+    </p>
+
+    <div class="filter">
+
+        <button class="active" data-cat="all">
+            Semua
+        </button>
+
+        <button data-cat="anjing">
+            Anjing
+        </button>
+
+        <button data-cat="kucing">
+            Kucing
+        </button>
+
+        <button data-cat="snack">
+            Snack
+        </button>
+
+        <button data-cat="aksesoris">
+            Aksesoris
+        </button>
+
+    </div>
+
+    <div class="grid" id="produkGrid"></div>
+
+</section>
+
+
+<!-- TENTANG -->
+<section class="tentang" id="tentang">
+
+    <div class="tentang-box">
+
+        <h2>🐾 Tentang PawFood</h2>
+
+        <p>
+            PawFood adalah toko kebutuhan hewan yang menyediakan
+            berbagai makanan, snack, dan aksesoris untuk hewan
+            kesayangan seperti anjing dan kucing.
+        </p>
+
+        <p>
+            PawFood dibuat untuk memudahkan pengguna dalam mencari
+            kebutuhan hewan melalui tampilan yang sederhana,
+            nyaman, dan mudah digunakan.
+        </p>
+
+        <div class="info-box">
+
+            <div class="info">
+                <div>🍖</div>
+                <h3>Makanan</h3>
+                <p>
+                    Berbagai pilihan makanan untuk anjing dan kucing.
+                </p>
+            </div>
+
+            <div class="info">
+                <div>🦴</div>
+                <h3>Snack</h3>
+                <p>
+                    Snack untuk menemani hewan kesayanganmu.
+                </p>
+            </div>
+
+            <div class="info">
+                <div>🧸</div>
+                <h3>Aksesoris</h3>
+                <p>
+                    Berbagai kebutuhan dan aksesoris untuk pet.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CART -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart" id="cart">
+
+    <div class="cart-head">
+
+        <h2>🛒 Keranjang</h2>
+
+        <button id="close">
+            ✕
+        </button>
+
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-foot">
+
+        <div class="total">
+            <b>Total</b>
+            <b id="total">Rp0</b>
+        </div>
+
+        <button class="checkout" id="checkout">
+            Checkout
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <h3>🐾 PawFood</h3>
+
+    <p>
+        Teman terbaik untuk kebutuhan hewan kesayanganmu.
+    </p>
+
+    <small>
+        © 2026 PawFood
+    </small>
+
+</footer>
+
+
+<script>
+
+const produk = [
+
+    {
+        id:1,
+        n:"Royal Canin Adult Dog",
+        h:125000,
+        c:"anjing",
+        img:"royalcanin_adultdog.jpg"
+    },
+
+    {
+        id:2,
+        n:"Pedigree Adult Beef",
+        h:78000,
+        c:"anjing",
+        img:"pedigree_adultbeef.jpg"
+    },
+
+    {
+        id:3,
+        n:"Whiskas Tuna",
+        h:65000,
+        c:"kucing",
+        img:"whiskas_tuna.jpg"
+    },
+
+    {
+        id:4,
+        n:"Royal Canin Kitten",
+        h:145000,
+        c:"kucing",
+        img:"royalcanin_kitten.jpg"
+    },
+
+    {
+        id:5,
+        n:"Me-O Adult Cat",
+        h:72000,
+        c:"kucing",
+        img:"me-o_adult.jpg"
+    },
+
+    {
+        id:6,
+        n:"Dog Treat Chicken",
+        h:35000,
+        c:"snack",
+        img:"dog_treatchicken.jpg"
+    },
+
+    {
+        id:7,
+        n:"Cat Snack Creamy",
+        h:28000,
+        c:"snack",
+        img:"catsnack_creamy.jpg"
+    },
+
+    {
+        id:8,
+        n:"Dental Chew",
+        h:42000,
+        c:"snack",
+        img:"dental_chew.jpg"
+    },
+
+    {
+        id:9,
+        n:"Kalung Pet Blue",
+        h:45000,
+        c:"aksesoris",
+        img:"kalungpet_blue.jpg"
+    },
+
+    {
+        id:10,
+        n:"Bola Mainan Pet",
+        h:30000,
+        c:"aksesoris",
+        img:"bolamainan_pet.jpg"
+    },
+
+    {
+        id:11,
+        n:"Tempat Makan Pet",
+        h:55000,
+        c:"aksesoris",
+        img:"tempatmakan_pet.jpg"
+    },
+
+    {
+        id:12,
+        n:"Pet Bed Cozy",
+        h:135000,
+        c:"aksesoris",
+        img:"pet_bedcozy.jpg"
+    }
+
+];
+
+
+let cart = [];
+let kategori = "all";
+let cari = "";
+
+
+/* FORMAT RUPIAH */
+function rupiah(n){
+
+    return "Rp" + n.toLocaleString("id-ID");
+
+}
+
+
+/* TAMPIL PRODUK */
+function tampil(){
+
+    let data = produk.filter(p =>
+
+        (kategori === "all" || p.c === kategori) &&
+
+        p.n.toLowerCase()
+            .includes(cari.toLowerCase())
+
+    );
+
+
+    if(data.length === 0){
+
+        document.getElementById("produkGrid").innerHTML = `
+
+            <p style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:30px;
+            ">
+                Produk tidak ditemukan.
+            </p>
+
+        `;
+
+        return;
+    }
+
+
+    document.getElementById("produkGrid").innerHTML =
+
+        data.map(p => `
+
+            <div class="card">
+
+                <div class="img">
+
+                    <img
+                        src="${p.img}"
+                        alt="${p.n}"
+                    >
+
+                </div>
+
+                <h3>
+                    ${p.n}
+                </h3>
+
+                <div class="price">
+                    ${rupiah(p.h)}
+                </div>
+
+                <button
+                    onclick="tambah(${p.id})"
+                >
+                    + Keranjang
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* TAMBAH KERANJANG */
+function tambah(id){
+
+    let item = cart.find(
+        p => p.id === id
+    );
+
+
+    if(item){
+
+        item.q++;
+
+    }else{
+
+        let p = produk.find(
+            p => p.id === id
+        );
+
+        cart.push({
+            ...p,
+            q:1
+        });
+
+    }
+
+
+    keranjang();
+
+    pesan(
+        "Produk ditambahkan ke keranjang!"
+    );
+
+}
+
+
+/* TAMPIL KERANJANG */
+function keranjang(){
+
+    let jumlah = cart.reduce(
+        (a,p) => a + p.q,
+        0
+    );
+
+
+    let total = cart.reduce(
+        (a,p) => a + p.h * p.q,
+        0
+    );
+
+
+    document.getElementById(
+        "cartCount"
+    ).textContent = jumlah;
+
+
+    document.getElementById(
+        "total"
+    ).textContent = rupiah(total);
+
+
+    if(cart.length === 0){
+
+        document.getElementById(
+            "cartItems"
+        ).innerHTML =
+
+            "<p>Keranjang masih kosong 🛒</p>";
+
+        return;
+    }
+
+
+    document.getElementById(
+        "cartItems"
+    ).innerHTML =
+
+        cart.map(p => `
+
+            <div class="cart-item">
+
+                <div class="cart-info">
+
+                    <b>
+                        ${p.n}
+                    </b>
+
+                    <br>
+
+                    <small>
+                        ${rupiah(p.h)}
+                    </small>
+
+                    <div class="qty">
+
+                        <button
+                            onclick="ubah(${p.id},-1)"
+                        >
+                            −
+                        </button>
+
+                        ${p.q}
+
+                        <button
+                            onclick="ubah(${p.id},1)"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="remove"
+                    onclick="hapus(${p.id})"
+                >
+                    🗑
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* UBAH JUMLAH */
+function ubah(id,n){
+
+    let item = cart.find(
+        p => p.id === id
+    );
+
+
+    item.q += n;
+
+
+    if(item.q <= 0){
+
+        hapus(id);
+
+    }else{
+
+        keranjang();
+
+    }
+
+}
+
+
+/* HAPUS */
+function hapus(id){
+
+    cart = cart.filter(
+        p => p.id !== id
+    );
+
+
+    keranjang();
+
+    pesan(
+        "Produk dihapus dari keranjang."
+    );
+
+}
+
+
+/* FILTER */
+document
+.querySelectorAll(".filter button")
+.forEach(btn => {
+
+    btn.addEventListener(
+        "click",
+        function(){
+
+            document
+            .querySelectorAll(".filter button")
+            .forEach(b =>
+                b.classList.remove("active")
+            );
+
+
+            this.classList.add("active");
+
+
+            kategori =
+                this.dataset.cat;
+
+
+            tampil();
+
+        }
+    );
+
+});
+
+
+/* SEARCH */
+document
+.getElementById("search")
+.addEventListener(
+    "input",
+    function(){
+
+        cari = this.value;
+
+        tampil();
+
+    }
+);
+
+
+/* BUKA KERANJANG */
+document
+.getElementById("cartBtn")
+.addEventListener(
+    "click",
+    function(){
+
+        document
+        .getElementById("cart")
+        .classList.add("show");
+
+
+        document
+        .getElementById("overlay")
+        .classList.add("show");
+
+    }
+);
+
+
+/* TUTUP KERANJANG */
+function tutupCart(){
+
+    document
+    .getElementById("cart")
+    .classList.remove("show");
+
+
+    document
+    .getElementById("overlay")
+    .classList.remove("show");
+
+}
+
+
+document
+.getElementById("close")
+.addEventListener(
+    "click",
+    tutupCart
+);
+
+
+document
+.getElementById("overlay")
+.addEventListener(
+    "click",
+    tutupCart
+);
+
+
+/* MENU MOBILE */
+document
+.getElementById("hamburger")
+.addEventListener(
+    "click",
+    function(){
+
+        document
+        .getElementById("menu")
+        .classList.toggle("show");
+
+    }
+);
+
+
+document
+.querySelectorAll(".menu a")
+.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            document
+            .getElementById("menu")
+            .classList.remove("show");
+
+        }
+    );
+
+});
+
+
+/* CHECKOUT */
+document
+.getElementById("checkout")
+.addEventListener(
+    "click",
+    function(){
+
+        if(cart.length === 0){
+
+            pesan(
+                "Keranjang masih kosong!"
+            );
+
+            return;
+        }
+
+
+        cart = [];
+
+        keranjang();
+
+        pesan(
+            "Checkout berhasil! 🐾"
+        );
+
+    }
+);
+
+
+/* PESAN */
+function pesan(text){
+
+    let toast =
+        document.getElementById("toast");
+
+
+    toast.textContent = text;
+
+
+    toast.classList.add("show");
+
+
+    setTimeout(
+        () => toast.classList.remove("show"),
+        2000
+    );
+
+}
+
+
+/* JALANKAN */
+tampil();
+keranjang();
+
+</script>
+
+</body>
+</html>

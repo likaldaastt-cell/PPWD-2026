@@ -1,1 +1,0 @@
-const tabel=document.getElementById(tabel)

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JelajahKu | Travel & Wisata</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Library jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Plugin Validasi Form -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#beranda" class="logo">Jelajah<span>Ku.</span></a>
+
+            <button class="menu-toggle" type="button" aria-label="Buka navigasi">
+                ☰
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#destinasi">Destinasi</a></li>
+                <li><a href="#paket">Paket Wisata</a></li>
+                <li><a href="#pemesanan">Pemesanan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="beranda" class="hero">
+        <div class="container hero-content">
+            <p class="eyebrow">TEMUKAN PETUALANGAN BARUMU</p>
+
+            <h1>
+                Jelajahi dunia,<br>
+                <span>ciptakan cerita.</span>
+            </h1>
+
+            <p class="hero-description">
+                Temukan destinasi menarik dan rencanakan perjalanan
+                yang berkesan bersama JelajahKu.
+            </p>
+
+            <a href="#destinasi" class="button button-primary">
+                Jelajahi Destinasi
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- DESTINASI DAN NAVIGASI TAB -->
+        <section id="destinasi" class="section container">
+            <div class="section-heading">
+                <p class="eyebrow">PILIH TUJUANMU</p>
+                <h2>Destinasi Favorit</h2>
+                <p>
+                    Temukan tempat yang cocok untuk liburan berikutnya.
+                </p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" type="button"
+                    data-target="#tab-alam">
+                    Wisata Alam
+                </button>
+
+                <button class="tab" type="button"
+                    data-target="#tab-pantai">
+                    Pantai
+                </button>
+
+                <button class="tab" type="button"
+                    data-target="#tab-budaya">
+                    Budaya
+                </button>
+            </div>
+
+            <!-- TAB WISATA ALAM -->
+            <div id="tab-alam" class="tab-panel destination-grid">
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"
+                        alt="Pegunungan dengan langit berbintang">
+
+                    <div class="card-body">
+                        <span class="tag">Wisata Alam</span>
+                        <h3>Gunung Bromo</h3>
+                        <p>
+                            Nikmati panorama pegunungan dan matahari
+                            terbit yang memukau.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80"
+                        alt="Hutan hijau yang rimbun">
+
+                    <div class="card-body">
+                        <span class="tag">Wisata Alam</span>
+                        <h3>Hutan Tropis</h3>
+                        <p>
+                            Rasakan suasana sejuk dan jelajahi
+                            keindahan alam yang asri.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
+                        alt="Puncak gunung yang menjulang">
+
+                    <div class="card-body">
+                        <span class="tag">Petualangan</span>
+                        <h3>Jalur Pegunungan</h3>
+                        <p>
+                            Isi liburan dengan trekking dan
+                            pemandangan yang menenangkan.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- TAB PANTAI -->
+            <div id="tab-pantai" class="tab-panel destination-grid">
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80"
+                        alt="Pantai berpasir dengan laut biru">
+
+                    <div class="card-body">
+                        <span class="tag">Pantai</span>
+                        <h3>Pantai Tropis</h3>
+                        <p>
+                            Bersantai di pasir putih sambil
+                            menikmati angin laut.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80"
+                        alt="Pemandangan laut dari tepi pantai">
+
+                    <div class="card-body">
+                        <span class="tag">Bahari</span>
+                        <h3>Liburan Bahari</h3>
+                        <p>
+                            Jelajahi pesisir dan nikmati suasana
+                            liburan yang santai.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=900&q=80"
+                        alt="Perahu di perairan tropis">
+
+                    <div class="card-body">
+                        <span class="tag">Petualangan</span>
+                        <h3>Wisata Perahu</h3>
+                        <p>
+                            Melihat keindahan perairan dari
+                            sudut pandang yang berbeda.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- TAB BUDAYA -->
+            <div id="tab-budaya" class="tab-panel destination-grid">
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=900&q=80"
+                        alt="Bangunan tradisional">
+
+                    <div class="card-body">
+                        <span class="tag">Budaya</span>
+                        <h3>Warisan Nusantara</h3>
+                        <p>
+                            Kenali sejarah, arsitektur, dan cerita
+                            di balik tempat bersejarah.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=900&q=80"
+                        alt="Pemandangan desa dan perbukitan">
+
+                    <div class="card-body">
+                        <span class="tag">Lokal</span>
+                        <h3>Desa Wisata</h3>
+                        <p>
+                            Temui keramahan warga dan rasakan
+                            pengalaman lokal.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80"
+                        alt="Pura dan lanskap wisata">
+
+                    <div class="card-body">
+                        <span class="tag">Budaya</span>
+                        <h3>Wisata Tradisi</h3>
+                        <p>
+                            Pelajari tradisi dan budaya yang diwariskan
+                            dari generasi ke generasi.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- PAKET WISATA -->
+        <section id="paket" class="section package-section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">PILIH PAKET LIBURAN</p>
+                    <h2>Paket Wisata Pilihan</h2>
+                    <p>
+                        Pilih paket perjalanan yang sesuai dengan
+                        kebutuhan liburanmu.
+                    </p>
+                </div>
+
+                <div class="package-grid">
+
+                    <article class="package-card">
+                        <p class="package-label">SINGKAT & SANTAI</p>
+                        <h3>One Day Trip</h3>
+
+                        <p class="package-price">
+                            Rp350.000 <small>/ orang</small>
+                        </p>
+
+                        <ul>
+                            <li>Wisata satu hari</li>
+                            <li>Transportasi lokal</li>
+                            <li>Pemandu wisata</li>
+                        </ul>
+
+                        <a href="#pemesanan"
+                            class="button button-outline pilih-paket"
+                            data-paket="One Day Trip">
+                            Pilih Paket
+                        </a>
+                    </article>
+
+                    <article class="package-card featured">
+                        <p class="package-label">PALING FAVORIT</p>
+                        <h3>Explore 3D2N</h3>
+
+                        <p class="package-price">
+                            Rp1.250.000 <small>/ orang</small>
+                        </p>
+
+                        <ul>
+                            <li>Perjalanan 3 hari 2 malam</li>
+                            <li>Penginapan 2 malam</li>
+                            <li>Pemandu wisata</li>
+                        </ul>
+
+                        <a href="#pemesanan"
+                            class="button button-primary pilih-paket"
+                            data-paket="Explore 3D2N">
+                            Pilih Paket
+                        </a>
+                    </article>
+
+                    <article class="package-card">
+                        <p class="package-label">LEBIH EKSKLUSIF</p>
+                        <h3>Private Journey</h3>
+
+                        <p class="package-price">
+                            Rp2.000.000 <small>/ orang</small>
+                        </p>
+
+                        <ul>
+                            <li>Jadwal fleksibel</li>
+                            <li>Transportasi privat</li>
+                            <li>Rencana perjalanan khusus</li>
+                        </ul>
+
+                        <a href="#pemesanan"
+                            class="button button-outline pilih-paket"
+                            data-paket="Private Journey">
+                            Pilih Paket
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FORM PEMESANAN -->
+        <section id="pemesanan" class="section container">
+            <div class="section-heading">
+                <p class="eyebrow">MULAI RENCANAKAN</p>
+                <h2>Formulir Pemesanan Wisata</h2>
+                <p>
+                    Isi data berikut untuk mengirim permintaan
+                    pemesanan perjalanan.
+                </p>
+            </div>
+
+            <form id="formPemesanan" class="booking-form" novalidate>
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama"
+                            placeholder="Masukkan nama lengkap">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Aktif</label>
+                        <input type="email" id="email" name="email"
+                            placeholder="nama@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telepon">Nomor Telepon</label>
+                        <input type="text" id="telepon" name="telepon"
+                            placeholder="10–13 digit angka">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destinasiPilihan">Destinasi Tujuan</label>
+                        <select id="destinasiPilihan" name="destinasi">
+                            <option value="">-- Pilih destinasi --</option>
+                            <option>Gunung Bromo</option>
+                            <option>Pantai Tropis</option>
+                            <option>Warisan Nusantara</option>
+                            <option>Destinasi lainnya</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paketPilihan">Paket Wisata</label>
+                        <select id="paketPilihan" name="paket">
+                            <option value="">-- Pilih paket --</option>
+                            <option>One Day Trip</option>
+                            <option>Explore 3D2N</option>
+                            <option>Private Journey</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal Keberangkatan</label>
+                        <input type="date" id="tanggal" name="tanggal">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peserta">Jumlah Peserta</label>
+                        <input type="number" id="peserta" name="peserta"
+                            min="1" max="20" placeholder="Contoh: 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="catatan">Catatan Tambahan</label>
+                        <input type="text" id="catatan" name="catatan"
+                            placeholder="Opsional">
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                    class="button button-primary submit-button">
+                    Kirim Permintaan
+                </button>
+
+                <div id="pesanSukses" class="success-message" hidden>
+                    <strong>Permintaan berhasil divalidasi!</strong>
+                    <p>
+                        Ini adalah demo praktikum. Data belum dikirim
+                        ke server atau disimpan ke database.
+                    </p>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="#beranda" class="logo">Jelajah<span>Ku.</span></a>
+
+            <p>
+                Temukan pengalaman baru, satu perjalanan
+                dalam satu waktu.
+            </p>
+
+            <small>
+                &copy; 2026 JelajahKu — Landing Page Praktikum PPWL.
+            </small>
+        </div>
+    </footer>
+
+    <!-- TOMBOL KEMBALI KE ATAS -->
+    <button id="backToTop" type="button" aria-label="Kembali ke atas">
+        ↑
+    </button>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Yan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <h2 class="logo">Yan</h2>
+    <button id="tombol-tema">Mode gelap</button>
+  </header>
+
+  <main class="isi">
+    <section class="perkenalan">
+      <h1>Halo, saya Yan.</h1>
+      <p>Mahasiswa Sistem Informasi yang suka membuat aplikasi web.</p>
+    </section>
+
+    <section class="proyek">
+      <h2>Proyek saya</h2>
+      <input type="text" id="cari" placeholder="Cari proyek...">
+
+      <div class="daftar-proyek">
+        <a class="kartu" href="buku-tamu-digital/index.html">
+          <h3>Buku Tamu Digital</h3>
+          <p>Formulir pencatatan tamu kantor.</p>
+        </a>
+
+        <a class="kartu" href="mav-platform/index.html">
+          <h3>MAV Platform</h3>
+          <p>Menu berbeda untuk setiap peran pengguna.</p>
+        </a>
+      </div>
+
+      <p id="pesan-kosong" class="pesan-kosong">Proyek tidak ditemukan.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KILAS — Cerita Hari Ini</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #f6f3eb;
+            --navy: #14251f;
+            --orange: #ff7043;
+            --green: #dce9d1;
+            --muted: #777b73;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--navy);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR: class wajib dari modul */
+        .navbar {
+            padding: 16px 0;
+            border-bottom: 1px solid #deded4;
+        }
+
+        .brand {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .brand span {
+            color: var(--orange);
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            margin-left: 12px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--orange);
+        }
+
+        .nav-label {
+            color: var(--orange);
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        /* HEADLINE: col-12 */
+        .hero {
+            background: linear-gradient(125deg, #14251f, #304c3c);
+            color: white;
+            padding: 48px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "K";
+            position: absolute;
+            right: 20px;
+            bottom: -110px;
+            font-family: 'Playfair Display', serif;
+            font-size: 330px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.04);
+            pointer-events: none;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--navy);
+            padding: 7px 12px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(34px, 5vw, 58px);
+            line-height: 1.12;
+            max-width: 700px;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            color: #d6dfd6;
+            max-width: 510px;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 13px 21px;
+            background: var(--orange);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        /* SECTION HEADING */
+        .section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--navy);
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+        }
+
+        .section-heading h2 {
+            font-size: 21px;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.7px;
+        }
+
+        .section-heading span {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            color: var(--orange);
+        }
+
+        /* MAIN NEWS */
+        .main-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .main-news {
+            background: white;
+            height: 100%;
+            border: 1px solid #e5e2d9;
+        }
+
+        .news-content {
+            padding: 23px;
+        }
+
+        .category {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #e45b32;
+            text-transform: uppercase;
+        }
+
+        .main-news h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            line-height: 1.3;
+            margin-top: 10px;
+        }
+
+        .description {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .read-more {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 800;
+            border-bottom: 2px solid var(--orange);
+            padding-bottom: 5px;
+            margin-top: 8px;
+        }
+
+        /* TRENDING SIDEBAR */
+        .trending-box {
+            background: var(--green);
+            padding: 22px;
+            height: 100%;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 15px;
+            padding: 18px 0;
+            border-bottom: 1px solid #c3d4b6;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trend-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 29px;
+            color: #819477;
+            font-weight: 800;
+        }
+
+        .trending-item h3 {
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.5;
+            margin-bottom: 7px;
+        }
+
+        .trending-item h3 a:hover {
+            color: #e45b32;
+        }
+
+        .trend-category {
+            color: #65745c;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* FOUR LATEST NEWS CARDS */
+        .latest-card {
+            height: 100%;
+            background: white;
+            border: 1px solid #e5e2d9;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .latest-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(20,37,31,0.10);
+        }
+
+        .latest-image {
+            width: 100%;
+            height: 175px;
+            object-fit: cover;
+        }
+
+        .latest-content {
+            padding: 18px;
+        }
+
+        .latest-content h3 {
+            font-size: 17px;
+            font-weight: 800;
+            line-height: 1.5;
+            margin-top: 9px;
+        }
+
+        .latest-content h3 a:hover {
+            color: #e45b32;
+        }
+
+        .latest-content p {
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        .latest-meta {
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .latest-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #d8d8cc;
+        }
+
+        /* FOOTER: class wajib dari modul */
+        footer {
+            border-top: 5px solid var(--orange);
+        }
+
+        .footer-brand {
+            font-size: 35px;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .footer-brand span {
+            color: var(--orange);
+        }
+
+        .footer-description {
+            color: #c4cec7;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer-label {
+            font-size: 10px;
+            color: var(--orange);
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #3b4b43;
+            margin-top: 25px;
+            padding-top: 18px;
+            color: #b8c2ba;
+            font-size: 11px;
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                padding: 30px 23px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .main-image {
+                height: 230px;
+            }
+
+            .main-news h3 {
+                font-size: 23px;
+            }
+
+            .brand {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <a class="navbar-brand brand" href="#beranda">
+                KILAS<span>.</span>
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuKilas"
+                aria-controls="menuKilas"
+                aria-expanded="false"
+                aria-label="Buka navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuKilas">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#beranda">BERANDA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#berita-utama">BERITA UTAMA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#trending">TRENDING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#berita-terbaru">TERBARU</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <main class="container py-4">
+
+        <!-- HEADLINE UTAMA: col-12 -->
+        <section id="beranda" class="row mb-5">
+            <div class="col-12">
+
+                <div class="hero">
+                    <span class="hero-label">CERITA HARI INI, PERSPEKTIF BARU</span>
+
+                    <h1>Dunia Berubah.<br>
+                        Jangan Sampai Kamu Tertinggal.</h1>
+
+                    <p class="mt-3">
+                        Dari inovasi teknologi hingga fenomena sosial,
+                        KILAS merangkum cerita penting di sekitar kita
+                        dengan sudut pandang yang lebih dekat dan relevan.
+                    </p>
+
+                    <a href="#berita-utama" class="hero-btn">
+                        JELAJAHI BERITA &rarr;
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BERITA UTAMA DAN SIDEBAR: TOTAL 12 KOLOM -->
+        <section class="row g-4 mb-5">
+
+            <!-- BERITA UTAMA: col-12 col-lg-8 -->
+            <div class="col-12 col-lg-8" id="berita-utama">
+
+                <div class="section-heading">
+                    <h2>Sudut Pandang</h2>
+                    <span>01 / EDITOR'S PICK</span>
+                </div>
+
+                <article class="main-news">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80"
+                        alt="Ilustrasi kecerdasan buatan"
+                        class="main-image">
+
+                    <div class="news-content">
+                        <span class="category">Teknologi & Inovasi</span>
+
+                        <h3>Ketika Kecerdasan Buatan Mulai Mengubah Cara Kita Menjalani Hidup</h3>
+
+                        <p class="meta mt-3">
+                            KILAS DESK &nbsp;·&nbsp; 27 Oktober 2026
+                        </p>
+
+                        <p class="description mt-3">
+                            Kecerdasan buatan bukan lagi sekadar teknologi
+                            masa depan. Kehadirannya mulai terasa dalam
+                            pendidikan, dunia kerja, hingga aktivitas
+                            sehari-hari. Pertanyaannya, sejauh mana kita
+                            siap menghadapi perubahan ini?
+                        </p>
+
+                        <a href="#berita-terbaru" class="read-more">
+                            LANJUTKAN MEMBACA &rarr;
+                        </a>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- SIDEBAR TRENDING: col-12 col-lg-4 -->
+            <aside class="col-12 col-lg-4" id="trending">
+
+                <div class="section-heading">
+                    <h2>Paling Dibicarakan</h2>
+                    <span>02 / TRENDING</span>
+                </div>
+
+                <div class="trending-box">
+
+                    <div class="mb-2">
+                        <span class="category">Sedang ramai diperbincangkan</span>
+                    </div>
+
+                    <article class="trending-item">
+                        <div class="trend-number">01</div>
+                        <div>
+                            <h3>
+                                <a href="#berita-terbaru">
+                                    Generasi Muda dan Peluang Karier di Era Digital
+                                </a>
+                            </h3>
+                            <span class="trend-category">Karier · 5 menit baca</span>
+                        </div>
+                    </article>
+
+                    <article class="trending-item">
+                        <div class="trend-number">02</div>
+                        <div>
+                            <h3>
+                                <a href="#berita-terbaru">
+                                    Mengapa Keamanan Data Pribadi Semakin Penting?
+                                </a>
+                            </h3>
+                            <span class="trend-category">Digital · 4 menit baca</span>
+                        </div>
+                    </article>
+
+                    <article class="trending-item">
+                        <div class="trend-number">03</div>
+                        <div>
+                            <h3>
+                                <a href="#berita-terbaru">
+                                    Startup Lokal Membawa Ide Baru ke Masyarakat
+                                </a>
+                            </h3>
+                            <span class="trend-category">Bisnis · 3 menit baca</span>
+                        </div>
+                    </article>
+
+                    <article class="trending-item">
+                        <div class="trend-number">04</div>
+                        <div>
+                            <h3>
+                                <a href="#berita-terbaru">
+                                    Gaya Hidup Ramah Lingkungan Dimulai dari Rumah
+                                </a>
+                            </h3>
+                            <span class="trend-category">Lingkungan · 4 menit baca</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+        <!-- BERITA TERBARU: 4 KARTU -->
+        <section id="berita-terbaru" class="mb-5">
+
+            <div class="section-heading">
+                <h2>Baru Saja Mendarat</h2>
+                <span>03 / LATEST STORIES</span>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- KARTU 1 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="latest-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80"
+                            alt="Komponen perangkat elektronik"
+                            class="latest-image">
+
+                        <div class="latest-content">
+                            <div class="d-flex justify-content-between">
+                                <span class="category">Teknologi</span>
+                                <span class="latest-number">01</span>
+                            </div>
+
+                            <h3>
+                                <a href="#beranda">
+                                    Inovasi Kecil yang Mengubah Dunia Digital
+                                </a>
+                            </h3>
+
+                            <p>
+                                Perkembangan perangkat teknologi membuka
+                                kemungkinan baru untuk aktivitas sehari-hari.
+                            </p>
+
+                            <div class="latest-meta">TEKNOLOGI · 4 MENIT BACA</div>
+                        </div>
+
+                    </article>
+                </div>
+
+                <!-- KARTU 2 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="latest-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=80"
+                            alt="Server pusat data"
+                            class="latest-image">
+
+                        <div class="latest-content">
+                            <div class="d-flex justify-content-between">
+                                <span class="category">Digital</span>
+                                <span class="latest-number">02</span>
+                            </div>
+
+                            <h3>
+                                <a href="#beranda">
+                                    Cloud Computing dan Masa Depan Penyimpanan Data
+                                </a>
+                            </h3>
+
+                            <p>
+                                Teknologi cloud membantu pengguna mengakses
+                                dan mengelola data secara lebih fleksibel.
+                            </p>
+
+                            <div class="latest-meta">DIGITAL · 3 MENIT BACA</div>
+                        </div>
+
+                    </article>
+                </div>
+
+                <!-- KARTU 3 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="latest-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80"
+                            alt="Tim berdiskusi dalam lingkungan kerja"
+                            class="latest-image">
+
+                        <div class="latest-content">
+                            <div class="d-flex justify-content-between">
+                                <span class="category">Bisnis</span>
+                                <span class="latest-number">03</span>
+                            </div>
+
+                            <h3>
+                                <a href="#beranda">
+                                    Anak Muda dan Gelombang Baru Bisnis Digital
+                                </a>
+                            </h3>
+
+                            <p>
+                                Ide kreatif dan pemanfaatan internet membuka
+                                peluang usaha bagi generasi muda.
+                            </p>
+
+                            <div class="latest-meta">BISNIS · 5 MENIT BACA</div>
+                        </div>
+
+                    </article>
+                </div>
+
+                <!-- KARTU 4 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="latest-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=700&q=80"
+                            alt="Ilustrasi keamanan siber"
+                            class="latest-image">
+
+                        <div class="latest-content">
+                            <div class="d-flex justify-content-between">
+                                <span class="category">Keamanan</span>
+                                <span class="latest-number">04</span>
+                            </div>
+
+                            <h3>
+                                <a href="#beranda">
+                                    Jejak Digital: Hal Kecil yang Perlu Diwaspadai
+                                </a>
+                            </h3>
+
+                            <p>
+                                Memahami keamanan digital membantu kita
+                                melindungi informasi pribadi di internet.
+                            </p>
+
+                            <div class="latest-meta">KEAMANAN · 4 MENIT BACA</div>
+                        </div>
+
+                    </article>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER: class wajib dari modul -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+
+            <div class="row g-4 align-items-start">
+
+                <div class="col-12 col-md-6">
+                    <div class="footer-brand">KILAS<span>.</span></div>
+
+                    <p class="footer-description mt-2">
+                        Cerita hari ini, perspektif baru.
+                        Portal informasi yang mendekatkan berita,
+                        ide, dan perubahan kepada pembacanya.
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-6 text-md-end">
+                    <div class="footer-label">TETAP TERHUBUNG</div>
+
+                    <p class="footer-description mt-2">
+                        Teknologi · Bisnis · Digital · Lingkungan
+                    </p>
+
+                    <a href="#beranda" class="text-white">
+                        Kembali ke atas &uarr;
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom d-flex flex-column flex-md-row
+                justify-content-between gap-2">
+                <span>&copy; 2026 KILAS. Semua hak dilindungi.</span>
+                <span>Informasi hari ini, untuk perspektif esok.</span>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

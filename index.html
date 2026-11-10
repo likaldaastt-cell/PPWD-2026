@@ -1,14 +1,98 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>tugas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Tugas PPWD</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #1e40af;
+            background: #eff6ff;
+            padding: 17px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 1px solid #dbeafe;
+        }
+
+        .menu a:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            margin-top: 30px;
+            font-size: 13px;
+        }
+    </style>
 </head>
 
 <body>
-    <a href="petfood/PetFood.html">petfood</a><br>
-    <a href="pertemuan11/Kopi.html">Web Kopi</a><br>
-    <a href="pertemuan9/webprofile.html">WebProfile</a><br>
-    <a href="Travel&Wisata/travel.html">Travel & Wisata</a><br>
-    <a href="pertemuan%2012/index.html">Portofolio</a><br>
+
+    <div class="container">
+        <h1>Daftar Tugas PPWD</h1>
+        <p class="subtitle">Kumpulan hasil praktikum dan tugas pertemuan</p>
+
+        <div class="menu">
+            <a href="petfood/PetFood.html">01. PetFood</a>
+            <a href="pertemuan11/Kopi.html">02. Web Kopi</a>
+            <a href="pertemuan9/webprofile.html">03. Web Profile</a>
+            <a href="Travel&Wisata/travel.html">04. Travel & Wisata</a>
+            <a href="pertemuan%2012/index.html">05. Portofolio</a>
+        </div>
+
+        <footer>
+            &copy; 2026 | Praktikum PPWD
+        </footer>
+    </div>
+
 </body>
 </html>
